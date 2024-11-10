@@ -15,21 +15,21 @@ jobs:
 
       - name: Validate HTML
         run: |
-          if [ ! -f index.html ]; then
-            echo "index.html no encontrado!"
+          if [ ! -f Index_html ]; then
+            echo "Index_html no encontrado!"
             exit 1
           else
-            echo "index.html encontrado!"
+            echo "Index_html encontrado!"
           fi
 
           # Validar que el formulario esté presente
-          if ! grep -q '<form id="contact-form"' index.html; then
+          if ! grep -q '<form id="contact-form"' Index_html; then
             echo "El formulario no está presente!"
             exit 1
           fi
 
           # Validar que el campo de nombre esté presente
-          if ! grep -q 'id="name"' index.html; then
+          if ! grep -q 'id="name"' Index_html; then
             echo "El campo de nombre no está presente!"
             exit 1
           fi
@@ -38,8 +38,8 @@ jobs:
 
       - name: Create optimized HTML
         run: |
-          cp index.html optimized_index.html  # Simulación de optimización
-          echo "Archivo optimizado creado como optimized_index.html"
+          cp Index_html optimized_Index_html  # Simulación de optimización
+          echo "Archivo optimizado creado como optimized_Index_html"
   
   deploy:
     runs-on: ubuntu-latest
